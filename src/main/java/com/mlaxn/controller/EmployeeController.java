@@ -1,20 +1,13 @@
 package com.mlaxn.controller;
 
-import java.util.Hashtable;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.mlaxn.service.EmployeeService;
 import com.mlaxn.model.ModelClass;
+import com.mlaxn.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Hashtable;
+
+//import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @RestController
@@ -24,8 +17,21 @@ public class EmployeeController {
     @Autowired
     EmployeeService es;
 
+    //@RequestMapping("/all")
+    //@RequestMapping(value = "/all", method = RequestMethod.POST)
+
+    //
+    //private static Logger logger = LogManager.getLogger(SpringBootRestMvc1Application.class);
+
+
     @GetMapping("/all")
     public Hashtable <Integer,ModelClass> getAllEmployee(){
+
+//		logger.info("Starting Spring Boot application..");
+//		System.out.println("get all Methods is called");
+//		logger.debug("Debuging... !");
+//		logger.error("Error... !");
+
         return es.getAll();
 
     }
@@ -42,6 +48,7 @@ public class EmployeeController {
     //@RequestMapping("create/{eid}/{name}/{post}")
 
     @PostMapping("add/{eid}/{name}/{post}")
+
     public void createEmployee (@PathVariable("eid")int id,
                                 @PathVariable("name") String name,
                                 @PathVariable("post") String post)

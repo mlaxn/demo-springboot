@@ -1,31 +1,25 @@
 package com.mlaxn;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.filter.OrderedFilter;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.util.StopWatch;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import lombok.extern.slf4j.Slf4j;
-
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Slf4j
 @SpringBootApplication
 public class DemoSpringbootApplication {
-	//@Slf4j does the same thing in the background using the lombort
+	//@Slf4j does the same thing in the background using the lombok
 	//private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DemoSpringbootApplication.class);
 
 	public static void main(String[] args) {
@@ -63,7 +57,6 @@ public class DemoSpringbootApplication {
 							(StringUtils.hasText(req.getQueryString()) ? "?" + req.getQueryString() : "");
 
 				}
-
 			});
 		}};
 	}

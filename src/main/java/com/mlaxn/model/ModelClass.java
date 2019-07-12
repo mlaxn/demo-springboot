@@ -1,11 +1,11 @@
 package com.mlaxn.model;
 
+
 public class ModelClass {
     int eid;
     String name;
     String position;
 
-    //Default Constructor
     public ModelClass() {}
 
     public ModelClass(int eid, String name, String position) {
@@ -34,4 +34,3 @@ public class ModelClass {
     }
 
 }
-

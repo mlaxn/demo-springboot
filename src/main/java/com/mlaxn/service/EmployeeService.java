@@ -1,29 +1,26 @@
 package com.mlaxn.service;
 
-import java.util.Hashtable;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.mlaxn.model.ModelClass;
+import org.springframework.stereotype.Service;
 
+import java.util.Hashtable;
 
 @Service
 public class EmployeeService {
-
     Hashtable<Integer,ModelClass> employees = new Hashtable<>();
     private static final String template = "Hello Employee, %s !";		//template to format the strings out put
 
     public EmployeeService() {
         ModelClass e1 = new ModelClass(1,"Madan","Infosys Manager");
-        ModelClass e2 = new ModelClass(2,"Goli","Infosys Tech Lead");
-
+        ModelClass e2 = new ModelClass(2," Goli","Infosys Tech Lead");
         employees.put(e1.getEid(), e1);
         employees.put(e2.getEid(), e2);
 
     }
-
     public void createEmployee(int id, String name, String post) {
+
         ModelClass e = new ModelClass(id,name,post);
         employees.put(e.getEid(),e);
 
@@ -37,16 +34,15 @@ public class EmployeeService {
         return null;
 
     }
-
     public Hashtable<Integer, ModelClass> getAll(){
-            return employees;
 
-        }
+        return employees;
+    }
 
     public void deleteEmployee(int eid) {
         if (employees.containsKey(eid)) {
             employees.remove(eid);
-            System.out.println("Deleted Employee Id: " + eid);
+            System.out.println("Deledted Employee Id: " + eid);
         }
         else
             System.out.println("Employee Id: "+ eid + " not Found");
@@ -62,4 +58,3 @@ public class EmployeeService {
     }
 
 }
-
