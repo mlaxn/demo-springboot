@@ -16,11 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Slf4j
+//@Slf4j
 @SpringBootApplication
 public class DemoSpringbootApplication {
 	//@Slf4j does the same thing in the background using the lombok
-	//private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DemoSpringbootApplication.class);
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(DemoSpringbootApplication.class);
 
 	public static void main(String[] args) {
 
